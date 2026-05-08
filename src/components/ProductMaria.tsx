@@ -12,7 +12,7 @@ export default function ProductMaria() {
   return (
     <section id="maria" className="py-24 relative scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -36,7 +36,7 @@ export default function ProductMaria() {
               ))}
             </div>
 
-            <div className="flex gap-4 mt-8">
+            <div className="flex flex-col sm:flex-row gap-4 mt-8">
               <a href="https://wa.me/5215510635993?text=Hola%2C%20me%20interesa%20una%20demo%20de%20MarIA" target="_blank" rel="noopener noreferrer">
                 <Button className="rounded-full" style={{ backgroundColor: MARIA_COLOR }}>Solicitar Demo</Button>
               </a>
@@ -51,8 +51,8 @@ export default function ProductMaria() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <div className="rounded-2xl overflow-hidden bg-bg-card border border-border-default glow-border p-6">
-              <div className="bg-bg-primary rounded-xl p-6">
+            <div className="rounded-2xl overflow-hidden bg-bg-card border border-border-default glow-border p-3 sm:p-6">
+              <div className="bg-bg-primary rounded-xl p-4 sm:p-6">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-3 h-3 rounded-full bg-red-500" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500" />
@@ -60,7 +60,7 @@ export default function ProductMaria() {
                   <span className="text-xs text-text-muted ml-2 font-mono">marIA - Dashboard</span>
                 </div>
                 <div className="space-y-4">
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-3 gap-2 sm:gap-3">
                     <div className="p-3 rounded-lg bg-bg-card border border-border-default text-center">
                       <div className="text-xs text-text-muted">Active Agents</div>
                       <div className="text-lg font-bold">0/1</div>

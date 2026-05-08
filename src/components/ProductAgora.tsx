@@ -12,7 +12,7 @@ export default function ProductAgora() {
   return (
     <section id="agora" className="py-24 bg-bg-secondary relative scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -37,7 +37,7 @@ export default function ProductAgora() {
                 <div className="space-y-2">
                   {['Ticket #1024 - Consulta de servicio', 'Ticket #1025 - Solicitud de trámite', 'Ticket #1026 - Reporte de falla'].map((ticket, i) => (
                     <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-bg-card border border-border-default">
-                      <span className="text-sm">{ticket}</span>
+                      <span className="text-xs sm:text-sm">{ticket}</span>
                       <span className={`text-xs px-2 py-0.5 rounded-full ${i === 0 ? 'bg-green-500/20 text-green-400' : i === 1 ? 'bg-yellow-500/20 text-yellow-400' : ''}`} style={i === 2 ? { background: `${AGORA_COLOR}33`, color: AGORA_COLOR } : {}}>
                         {i === 0 ? 'Resuelto' : i === 1 ? 'En Progreso' : 'Nuevo'}
                       </span>
@@ -62,7 +62,7 @@ export default function ProductAgora() {
               </div>
             ))}
 
-            <div className="flex gap-4 mt-6">
+            <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <a href="https://wa.me/5215510635993?text=Hola%2C%20me%20interesa%20una%20demo%20de%20Ágora" target="_blank" rel="noopener noreferrer">
                 <Button className="rounded-full" style={{ backgroundColor: AGORA_COLOR }}>Solicitar Demo</Button>
               </a>

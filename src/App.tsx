@@ -10,10 +10,12 @@ import ProductMaria from '@/components/ProductMaria'
 import ProductAgora from '@/components/ProductAgora'
 import ImpactSection from '@/components/ImpactSection'
 import CTASection from '@/components/CTASection'
+import ParticlesBackground from '@/components/ParticlesBackground'
 
 function App() {
   return (
-    <div className="min-h-screen bg-bg-primary">
+    <div className="min-h-screen bg-bg-primary relative">
+      <ParticlesBackground />
       <Navigation />
       <main>
         <HeroSection />

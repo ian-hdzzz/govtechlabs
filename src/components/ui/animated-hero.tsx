@@ -31,7 +31,7 @@ function Hero() {
             </Button>
           </div>
           <div className="flex gap-4 flex-col">
-            <h1 className="text-5xl md:text-7xl max-w-3xl tracking-tighter text-center font-bold">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl max-w-3xl tracking-tighter text-center font-bold">
               <span className="text-text-primary">Instituciones</span>
               <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
                 &nbsp;

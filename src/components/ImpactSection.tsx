@@ -42,7 +42,7 @@ export default function ImpactSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-3 gap-4 mb-12"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12"
         >
           <div className="rounded-2xl overflow-hidden aspect-[4/3]">
             <img src={ceaInfraestructura} alt="Infraestructura hídrica CEA Querétaro" className="w-full h-full object-cover" />
@@ -63,7 +63,7 @@ export default function ImpactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
-              className="p-8 rounded-2xl bg-bg-card border border-border-default hover:border-accent/20 transition-all"
+              className="p-6 sm:p-8 rounded-2xl bg-bg-card border border-border-default hover:border-accent/20 transition-all"
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center">

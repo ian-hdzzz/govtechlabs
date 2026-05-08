@@ -95,8 +95,9 @@ export default function ProductAgora() {
             </h4>
           </div>
 
-          <div className="grid sm:grid-cols-3 gap-6">
-            {[screens[1], screens[2], screens[3]].map((screen, i) => (
+          {/* Top row: 2 large screenshots */}
+          <div className="grid sm:grid-cols-2 gap-6 mb-6">
+            {[screens[1], screens[2]].map((screen, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -116,6 +117,23 @@ export default function ProductAgora() {
               </motion.div>
             ))}
           </div>
+          {/* Bottom: Full-width screenshot */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.24 }}
+            whileHover={{ y: -5 }}
+            className="relative max-w-4xl mx-auto"
+          >
+            <div className="absolute -inset-0.5 rounded-2xl opacity-15 blur-md" style={{ background: AGORA_COLOR }} />
+            <div className="relative rounded-2xl overflow-hidden border border-border-default shadow-xl">
+              <img src={screens[3].src} alt={screens[3].alt} className="w-full h-auto rounded-2xl" />
+            </div>
+            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-bg-card border border-border-default shadow-lg whitespace-nowrap">
+              <span className="text-[11px] font-semibold text-text-muted">{screens[3].label}</span>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

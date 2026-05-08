@@ -1,32 +1,17 @@
 import { motion } from 'framer-motion'
-import { CreditCard, Zap } from 'lucide-react'
+import { CreditCard, Zap, BarChart3 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import SupraLogo, { SUPRA_COLOR } from '@/components/logos/SupraLogo'
-
-import supraAdmin from '@/assets/supra/supra-admin.png'
-import supraAdminContratos from '@/assets/supra/supra-admin-contratos.png'
-import supraCliente1 from '@/assets/supra/supra-cliente-1.png'
-import supraCliente2 from '@/assets/supra/supra-cliente-2.png'
-import supraCliente3 from '@/assets/supra/supra-cliente-3.png'
-import supraCliente4 from '@/assets/supra/supra-cliente-4.png'
 
 const features = [
   { icon: CreditCard, title: 'Recaudación', desc: 'Procesamiento de cobros multicanal con conciliación automática.' },
   { icon: Zap, title: 'Integración', desc: 'Conexión directa de SPEI con plataformas gubernamentales y bancarias.' },
 ]
 
-const clientScreens = [
-  { src: supraCliente1, alt: 'Portal del cliente - Bienvenida' },
-  { src: supraCliente2, alt: 'Portal del cliente - Adeudos' },
-  { src: supraCliente3, alt: 'Portal del cliente - Métodos de pago' },
-  { src: supraCliente4, alt: 'Portal del cliente - Pago exitoso' },
-]
-
 export default function ProductSupra() {
   return (
     <section id="supra" className="py-24 relative scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top: Info + Admin panel */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -61,90 +46,55 @@ export default function ProductSupra() {
             </div>
           </motion.div>
 
-          {/* Admin panel screenshots - stacked with overlap */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative"
           >
-            <div className="absolute -inset-2 rounded-3xl opacity-25 blur-xl" style={{ background: `linear-gradient(135deg, ${SUPRA_COLOR}40, transparent)` }} />
-            {/* Back: Contratos */}
-            <div className="relative rounded-2xl overflow-hidden border border-border-default shadow-xl">
-              <img
-                src={supraAdminContratos}
-                alt="SUPRA - Gestión de contratos"
-                className="w-full h-auto rounded-2xl"
-              />
-            </div>
-            {/* Front: Dashboard overlapping */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              whileHover={{ y: -5 }}
-              className="relative -mt-[30%] ml-[8%] mr-[-4%] rounded-2xl overflow-hidden border border-border-default shadow-2xl"
-              style={{ zIndex: 10 }}
-            >
-              <img
-                src={supraAdmin}
-                alt="SUPRA - Panel de control"
-                className="w-full h-auto rounded-2xl"
-              />
-            </motion.div>
-            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-bg-card border border-border-default shadow-lg z-20">
-              <span className="text-xs font-semibold text-text-muted">Vista Administrativa</span>
+            <div className="rounded-2xl overflow-hidden bg-bg-card border border-border-default glow-border p-3 sm:p-6">
+              <div className="bg-bg-primary rounded-xl p-4 sm:p-6">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-3 h-3 rounded-full bg-red-500" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                  <div className="w-3 h-3 rounded-full bg-green-500" />
+                  <span className="text-xs text-text-muted ml-2 font-mono">SUPRA - Panel de Control</span>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-4 rounded-lg bg-bg-card border border-border-default">
+                    <div>
+                      <div className="text-xs text-text-muted">Total Recaudado Hoy</div>
+                      <div className="text-2xl font-bold" style={{ color: SUPRA_COLOR }}>$12,450.00</div>
+                    </div>
+                    <BarChart3 size={32} style={{ color: SUPRA_COLOR }} />
+                  </div>
+                  <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                    <div className="p-3 rounded-lg bg-bg-card border border-border-default text-center">
+                      <div className="text-lg font-bold">42</div>
+                      <div className="text-xs text-text-muted">Pagos</div>
+                    </div>
+                    <div className="p-3 rounded-lg bg-bg-card border border-border-default text-center">
+                      <div className="text-lg font-bold">1,204</div>
+                      <div className="text-xs text-text-muted">Cuentas</div>
+                    </div>
+                    <div className="p-3 rounded-lg bg-bg-card border border-border-default text-center">
+                      <div className="text-lg font-bold text-green-400">68%</div>
+                      <div className="text-xs text-text-muted">Eficiencia</div>
+                    </div>
+                  </div>
+                  <div className="h-32 rounded-lg bg-bg-card border border-border-default p-4 flex items-end gap-1">
+                    {[40, 65, 55, 80, 70, 90, 60, 75, 85, 95, 70, 80].map((h, i) => (
+                      <div
+                        key={i}
+                        className="flex-1 rounded-t"
+                        style={{ height: `${h}%`, background: `linear-gradient(to top, ${SUPRA_COLOR}99, ${SUPRA_COLOR})` }}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
-
-        {/* Bottom: Client mobile screens */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-20"
-        >
-          <div className="text-center mb-10">
-            <span className="text-xs font-mono tracking-widest uppercase text-text-muted">Portal del Cliente</span>
-            <h4 className="text-xl sm:text-2xl font-bold mt-2">
-              Experiencia de pago <span style={{ color: SUPRA_COLOR }}>fluida y segura</span>
-            </h4>
-          </div>
-
-          {/* Mobile screens fan layout */}
-          <div className="flex justify-center items-end gap-3 sm:gap-5 md:gap-6 px-4 pb-4">
-            {clientScreens.map((screen, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.12 }}
-                whileHover={{ y: -10 }}
-                className="relative flex-shrink-0"
-                style={{
-                  width: 'clamp(140px, 20vw, 200px)',
-                  transform: `rotate(${(i - 1.5) * 3}deg)`,
-                  zIndex: i === 1 || i === 2 ? 10 : 5,
-                }}
-              >
-                <div
-                  className="absolute -inset-0.5 rounded-[20px] opacity-20 blur-md"
-                  style={{ background: SUPRA_COLOR }}
-                />
-                <div className="relative rounded-[18px] overflow-hidden border-2 border-white/10 shadow-2xl bg-white">
-                  <img
-                    src={screen.src}
-                    alt={screen.alt}
-                    className="w-full h-auto"
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   )

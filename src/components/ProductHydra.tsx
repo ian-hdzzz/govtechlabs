@@ -1,11 +1,7 @@
 import { motion } from 'framer-motion'
-import { CheckCircle } from 'lucide-react'
+import { CheckCircle, Gauge, Settings } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import HydraLogo, { HYDRA_COLOR } from '@/components/logos/HydraLogo'
-
-import hydraFactibilidades from '@/assets/hydra/hydra-factibilidades.png'
-import hydraPortalFacturas from '@/assets/hydra/hydra-portal-facturas.png'
-import hydraPortalTramites from '@/assets/hydra/hydra-portal-tramites.png'
 
 const features = [
   'Gestión completa de padrón de usuarios y contratos.',
@@ -13,41 +9,53 @@ const features = [
   'Módulo de Acceso Ciudadano multifacético.',
 ]
 
-const screens = [
-  { src: hydraFactibilidades, alt: 'Hydra - Gestión de factibilidades', label: 'Panel Administrativo' },
-  { src: hydraPortalFacturas, alt: 'Hydra - Portal de facturas', label: 'Portal de Facturas' },
-  { src: hydraPortalTramites, alt: 'Hydra - Trámites digitales', label: 'Trámites Digitales' },
-]
-
 export default function ProductHydra() {
   return (
     <section id="hydra" className="py-24 bg-bg-secondary relative scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top: Info + Main screenshot */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          {/* Main screenshot — left on desktop */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="order-2 lg:order-1"
           >
-            <div className="relative">
-              <div className="absolute -inset-1 rounded-3xl opacity-25 blur-xl" style={{ background: `linear-gradient(135deg, ${HYDRA_COLOR}50, transparent)` }} />
-              <div className="relative rounded-2xl overflow-hidden border border-border-default shadow-2xl">
-                <img
-                  src={hydraFactibilidades}
-                  alt="HYDRA - Panel administrativo de factibilidades"
-                  className="w-full h-auto rounded-2xl"
-                />
-              </div>
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-bg-card border border-border-default shadow-lg">
-                <span className="text-xs font-semibold text-text-muted">Panel Administrativo</span>
+            <div className="rounded-2xl overflow-hidden bg-bg-card border border-border-default glow-border p-3 sm:p-6">
+              <div className="bg-bg-primary rounded-xl p-4 sm:p-6">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-3 h-3 rounded-full bg-red-500" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                  <div className="w-3 h-3 rounded-full bg-green-500" />
+                  <span className="text-xs text-text-muted ml-2 font-mono">HYDRA - Dashboard</span>
+                </div>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="p-4 rounded-lg bg-bg-card border border-border-default">
+                      <Gauge className="mb-2" size={20} style={{ color: HYDRA_COLOR }} />
+                      <div className="text-xs text-text-muted">Monitorización</div>
+                      <div className="text-sm text-text-secondary mt-1">Seguimiento en tiempo real de medidores</div>
+                    </div>
+                    <div className="p-4 rounded-lg bg-bg-card border border-border-default text-center">
+                      <div className="text-3xl font-bold" style={{ color: HYDRA_COLOR }}>3</div>
+                      <div className="text-xs text-text-muted mt-1">Contratos activos</div>
+                    </div>
+                  </div>
+                  <div className="p-4 rounded-lg bg-bg-card border border-border-default">
+                    <div className="flex items-center gap-3 mb-3">
+                      <Settings size={20} style={{ color: HYDRA_COLOR }} />
+                      <span className="text-sm font-medium">Infraestructura activa</span>
+                    </div>
+                    <div className="grid grid-cols-4 gap-1 sm:gap-2">
+                      {[...Array(8)].map((_, i) => (
+                        <div key={i} className="h-8 rounded" style={{ background: `${HYDRA_COLOR}33`, borderColor: `${HYDRA_COLOR}1a`, borderWidth: 1 }} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Text content — right */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -81,43 +89,6 @@ export default function ProductHydra() {
             </div>
           </motion.div>
         </div>
-
-        {/* Bottom: Portal screenshots side by side */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-20"
-        >
-          <div className="text-center mb-10">
-            <span className="text-xs font-mono tracking-widest uppercase text-text-muted">Portal Ciudadano</span>
-            <h4 className="text-xl sm:text-2xl font-bold mt-2">
-              Acceso digital para <span style={{ color: HYDRA_COLOR }}>trámites y facturación</span>
-            </h4>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-6">
-            {[screens[1], screens[2]].map((screen, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                whileHover={{ y: -5 }}
-                className="relative"
-              >
-                <div className="absolute -inset-0.5 rounded-2xl opacity-15 blur-md" style={{ background: HYDRA_COLOR }} />
-                <div className="relative rounded-2xl overflow-hidden border border-border-default shadow-xl">
-                  <img src={screen.src} alt={screen.alt} className="w-full h-auto rounded-2xl" />
-                </div>
-                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-bg-card border border-border-default shadow-lg">
-                  <span className="text-[11px] font-semibold text-text-muted">{screen.label}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   )

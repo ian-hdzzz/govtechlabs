@@ -1,77 +1,68 @@
 import { motion } from 'framer-motion'
-import { CheckCircle } from 'lucide-react'
+import { Quote } from 'lucide-react'
 
-const impacts = [
-  '65% Reduction in administrative processing time.',
-  '99.9% uptime for essential public infrastructure.',
-  'Seamless integration with 200+ banking and SPEI channels.',
+const testimonials = [
+  {
+    quote: 'Automatizamos la gestión de reportes de fugas y obtuvimos visibilidad completa del proceso de atención. Mejoramos la eficiencia operativa 70% y reducimos la dependencia de personal de soporte en más de 10x.',
+    role: 'Director de Innovación',
+    org: 'Organismo Administrador de Agua Estatal',
+    tag: 'CEA Querétaro',
+  },
+  {
+    quote: 'Transformamos nuestra recaudación digital y eliminamos gran parte del trabajo manual en pagos y conciliación. Hoy los pagos se registran y concilian automáticamente, reduciendo significativamente la carga del call center.',
+    role: 'VP Comercial',
+    org: 'Empresa de Recaudación para Servicios Financieros',
+    tag: 'Servicios Financieros',
+  },
 ]
 
 export default function ImpactSection() {
   return (
-    <section className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-transparent to-accent-secondary/5" />
+    <section id="impacto" className="py-24 bg-bg-secondary relative overflow-hidden scroll-mt-20">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[150px]" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="text-xs font-mono text-accent-light mb-4 tracking-widest">THE IMPACT</div>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-8">
-              Efficiency measured in{' '}
-              <span className="gradient-text">human progress.</span>
-            </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <div className="text-xs font-mono text-accent-light mb-4 tracking-widest">CASOS DE ÉXITO</div>
+          <h2 className="text-3xl sm:text-4xl font-bold">
+            Las instituciones líderes ya{' '}
+            <span className="gradient-text">transformaron su operación</span>
+          </h2>
+        </motion.div>
 
-            <div className="space-y-4">
-              {impacts.map((impact, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex items-start gap-3"
-                >
-                  <CheckCircle className="text-accent-light mt-0.5 shrink-0" size={20} />
-                  <p className="text-text-secondary">{impact}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <div className="aspect-video rounded-2xl overflow-hidden bg-bg-card border border-border-default glow-border">
-              <div className="w-full h-full bg-gradient-to-br from-accent/5 via-bg-card to-accent-secondary/5 flex items-center justify-center">
-                <div className="grid grid-cols-3 gap-4 p-8 w-full">
-                  <div className="h-24 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-accent-light">65%</div>
-                      <div className="text-xs text-text-muted">Reducción</div>
-                    </div>
-                  </div>
-                  <div className="h-24 rounded-xl bg-accent-secondary/10 border border-accent-secondary/20 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-accent-light">99.9%</div>
-                      <div className="text-xs text-text-muted">Uptime</div>
-                    </div>
-                  </div>
-                  <div className="h-24 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-accent-light">200+</div>
-                      <div className="text-xs text-text-muted">Canales</div>
-                    </div>
-                  </div>
+        <div className="grid md:grid-cols-2 gap-8">
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15 }}
+              className="p-8 rounded-2xl bg-bg-card border border-border-default hover:border-accent/20 transition-all"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center">
+                  <Quote className="text-accent-light" size={18} />
                 </div>
+                <span className="text-xs font-mono text-accent-light px-3 py-1 rounded-full bg-accent/10 border border-accent/20">
+                  {t.tag}
+                </span>
               </div>
-            </div>
-          </motion.div>
+
+              <blockquote className="text-text-secondary leading-relaxed mb-6 italic">
+                "{t.quote}"
+              </blockquote>
+
+              <div>
+                <div className="font-semibold text-accent-light">{t.role}</div>
+                <div className="text-sm text-text-muted">{t.org}</div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

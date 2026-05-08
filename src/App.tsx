@@ -1,20 +1,31 @@
-import { Routes, Route } from 'react-router-dom'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-import HomePage from '@/pages/HomePage'
-import ProductsPage from '@/pages/ProductsPage'
-import SolutionsPage from '@/pages/SolutionsPage'
+import HeroSection from '@/components/HeroSection'
+import VisionSection from '@/components/VisionSection'
+import PlatformOverview from '@/components/PlatformOverview'
+import PillarsSection from '@/components/PillarsSection'
+import ProductSupra from '@/components/ProductSupra'
+import ProductHydra from '@/components/ProductHydra'
+import ProductMaria from '@/components/ProductMaria'
+import ProductAgora from '@/components/ProductAgora'
+import ImpactSection from '@/components/ImpactSection'
 
 function App() {
   return (
     <div className="min-h-screen bg-bg-primary">
       <Navigation />
       <main>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/productos" element={<ProductsPage />} />
-          <Route path="/soluciones" element={<SolutionsPage />} />
-        </Routes>
+        <HeroSection />
+        <VisionSection />
+        <PlatformOverview />
+        <PillarsSection />
+        <div id="productos" className="scroll-mt-20">
+          <ProductSupra />
+          <ProductHydra />
+          <ProductMaria />
+          <ProductAgora />
+        </div>
+        <ImpactSection />
       </main>
       <Footer />
     </div>

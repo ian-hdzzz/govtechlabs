@@ -1,34 +1,36 @@
-import { Link } from 'react-router-dom'
+const HSC_COLOR = '#8B8B00'
 
 const footerLinks = {
   Products: [
-    { name: 'Supra', path: '/productos#supra' },
-    { name: 'Hydra', path: '/productos#hydra' },
-    { name: 'MarIA', path: '/soluciones#maria' },
-    { name: 'Ágora', path: '/soluciones#agora' },
+    { name: 'Supra', href: '#supra' },
+    { name: 'Hydra', href: '#hydra' },
+    { name: 'MarIA', href: '#maria' },
+    { name: 'Ágora', href: '#agora' },
   ],
   Solutions: [
-    { name: 'Pagos', path: '/productos#supra' },
-    { name: 'Infraestructura', path: '/productos#hydra' },
-    { name: 'Atención Ciudadana', path: '/soluciones#maria' },
-    { name: 'Gestión', path: '/soluciones#agora' },
+    { name: 'Pagos', href: '#supra' },
+    { name: 'Infraestructura', href: '#hydra' },
+    { name: 'Atención Ciudadana', href: '#maria' },
+    { name: 'Gestión', href: '#agora' },
   ],
   Legal: [
-    { name: 'Privacy Policy', path: '#' },
-    { name: 'Terms of Service', path: '#' },
+    { name: 'Privacy Policy', href: '#' },
+    { name: 'Terms of Service', href: '#' },
   ],
   Contact: [
-    { name: 'Contact Us', path: '/contact' },
+    { name: 'Contact Us', href: '#contacto' },
   ],
 }
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border-default bg-bg-secondary">
+    <footer id="contacto" className="border-t border-border-default bg-bg-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2 md:col-span-1">
-            <span className="text-lg font-bold text-text-primary">Human Software Corp</span>
+            <span className="text-lg font-black" style={{ color: HSC_COLOR }}>
+              Human Software Corp
+            </span>
             <p className="mt-3 text-sm text-text-secondary">
               The operating system for future-ready institutions.
             </p>
@@ -39,12 +41,12 @@ export default function Footer() {
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link.name}>
-                    <Link
-                      to={link.path}
+                    <a
+                      href={link.href}
                       className="text-sm text-text-secondary hover:text-accent-light transition-colors"
                     >
                       {link.name}
-                    </Link>
+                    </a>
                   </li>
                 ))}
               </ul>

@@ -1,14 +1,9 @@
 import { motion } from 'framer-motion'
 import { CheckCircle } from 'lucide-react'
 
-const stats = [
-  { value: '99.9%', label: 'Operational Uptime' },
-  { value: '12x', label: 'Data Processing Speed' },
-]
-
 const visionPoints = [
   'Habilitamos sistemas autónomos que optimizan recursos, datos e infraestructura.',
-  'Construimos y conectamos compatibilidad en esferas operativas real.',
+  'Convertimos la complejidad en eficiencia operativa real.',
 ]
 
 export default function VisionSection() {
@@ -24,24 +19,19 @@ export default function VisionSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="text-xs font-mono text-accent-light mb-4 tracking-widest">DIGITAL VISION</div>
+            <div className="text-xs font-mono text-accent-light mb-4 tracking-widest">NUESTRA MISIÓN</div>
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">
               Redefinir cómo funcionan las instituciones en la era de la{' '}
-              <span className="gradient-text">inteligencia artificial.</span>
+              <span className="gradient-text">inteligencia artificial,</span>
             </h2>
-            <div className="space-y-4 mb-8">
+            <p className="text-text-secondary mb-8 leading-relaxed">
+              habilitando sistemas autónomos que optimicen recursos, datos e infraestructura y conviertan la complejidad en eficiencia operativa real.
+            </p>
+            <div className="space-y-4">
               {visionPoints.map((point, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <CheckCircle className="text-accent-light mt-0.5 shrink-0" size={20} />
                   <p className="text-text-secondary">{point}</p>
-                </div>
-              ))}
-            </div>
-            <div className="grid grid-cols-2 gap-6">
-              {stats.map((stat) => (
-                <div key={stat.label} className="p-4 rounded-xl bg-bg-card border border-border-default">
-                  <div className="text-3xl font-bold gradient-text">{stat.value}</div>
-                  <div className="text-sm text-text-secondary mt-1">{stat.label}</div>
                 </div>
               ))}
             </div>

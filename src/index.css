@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-primary: #0a0a14;
-  --color-bg-secondary: #10101c;
-  --color-bg-card: #161625;
-  --color-bg-card-hover: #1c1c30;
+  --color-bg-primary: #0a0e08;
+  --color-bg-secondary: #0f1410;
+  --color-bg-card: #151c12;
+  --color-bg-card-hover: #1c2518;
 
-  --color-accent: #7c3aed;
-  --color-accent-secondary: #6366f1;
-  --color-accent-light: #a78bfa;
-  --color-accent-glow: #8b5cf6;
+  --color-accent: #8B8B00;
+  --color-accent-secondary: #9a9a00;
+  --color-accent-light: #b8b820;
+  --color-accent-glow: #a0a010;
 
   --color-supra: #1e3a5f;
   --color-supra-accent: #2563eb;
@@ -20,12 +20,12 @@
   --color-agora: #134e4a;
   --color-agora-accent: #14b8a6;
 
-  --color-text-primary: #f1f5f9;
-  --color-text-secondary: #94a3b8;
-  --color-text-muted: #64748b;
+  --color-text-primary: #f1f5f0;
+  --color-text-secondary: #94a390;
+  --color-text-muted: #64755e;
 
-  --color-border-default: #1e293b;
-  --color-border-light: #334155;
+  --color-border-default: #1e2b1a;
+  --color-border-light: #2e4028;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
@@ -52,26 +52,26 @@
 
 @layer utilities {
   .gradient-text {
-    background: linear-gradient(135deg, #a78bfa, #7c3aed);
+    background: linear-gradient(135deg, #b8b820, #8B8B00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .glow-border {
-    box-shadow: 0 0 20px rgba(124, 58, 237, 0.15), 0 0 40px rgba(124, 58, 237, 0.05);
+    box-shadow: 0 0 20px rgba(139, 139, 0, 0.15), 0 0 40px rgba(139, 139, 0, 0.05);
   }
 
   .glass {
-    background: rgba(22, 22, 37, 0.7);
+    background: rgba(15, 20, 16, 0.85);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(124, 58, 237, 0.15);
+    border: 1px solid rgba(139, 139, 0, 0.15);
   }
 
   .grid-bg {
     background-image:
-      linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(139, 139, 0, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139, 139, 0, 0.04) 1px, transparent 1px);
     background-size: 60px 60px;
   }
 }

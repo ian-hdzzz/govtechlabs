@@ -1,50 +1,48 @@
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 
+const HSC_COLOR = '#8B8B00'
+
 const navLinks = [
-  { name: 'Supra', path: '/productos#supra' },
-  { name: 'Hydra', path: '/productos#hydra' },
-  { name: 'MarIA', path: '/soluciones#maria' },
-  { name: 'Ágora', path: '/soluciones#agora' },
-  { name: 'Company', path: '/company' },
+  { name: 'Supra', href: '#supra' },
+  { name: 'Hydra', href: '#hydra' },
+  { name: 'MarIA', href: '#maria' },
+  { name: 'Ágora', href: '#agora' },
+  { name: 'Company', href: '#impacto' },
 ]
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
-  const location = useLocation()
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-2">
-            <span className="text-lg font-bold text-text-primary">Human Software Corp</span>
-          </Link>
+          <a href="#hero" className="flex items-center gap-2">
+            <span className="text-lg font-black" style={{ color: HSC_COLOR }}>
+              Human Software Corp
+            </span>
+          </a>
 
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.name}
-                to={link.path}
-                className={`text-sm font-medium transition-colors hover:text-accent-light ${
-                  location.pathname === link.path
-                    ? 'text-accent-light'
-                    : 'text-text-secondary'
-                }`}
+                href={link.href}
+                className="text-sm font-medium transition-colors hover:text-accent-light text-text-secondary"
               >
                 {link.name}
-              </Link>
+              </a>
             ))}
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <Link
-              to="/contact"
+            <a
+              href="#contacto"
               className="px-5 py-2 text-sm font-medium rounded-full bg-accent text-white hover:bg-accent-glow transition-colors"
             >
               Get Started
-            </Link>
+            </a>
           </div>
 
           <button
@@ -60,22 +58,22 @@ export default function Navigation() {
         <div className="md:hidden glass border-t border-border-default">
           <div className="px-4 py-4 space-y-3">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.name}
-                to={link.path}
+                href={link.href}
                 className="block text-sm font-medium text-text-secondary hover:text-accent-light transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
-              </Link>
+              </a>
             ))}
-            <Link
-              to="/contact"
+            <a
+              href="#contacto"
               className="block w-full text-center px-5 py-2 text-sm font-medium rounded-full bg-accent text-white hover:bg-accent-glow transition-colors"
               onClick={() => setIsOpen(false)}
             >
               Get Started
-            </Link>
+            </a>
           </div>
         </div>
       )}

@@ -1,5 +1,137 @@
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { CheckCircle, ArrowRight } from 'lucide-react'
+
+function OrbCanvas() {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    let animationId: number
+    let time = 0
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth * window.devicePixelRatio
+      canvas.height = canvas.offsetHeight * window.devicePixelRatio
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio)
+    }
+    resize()
+    window.addEventListener('resize', resize)
+
+    // Generate sphere points using fibonacci distribution
+    const POINT_COUNT = 200
+    const points: { theta: number; phi: number }[] = []
+    const goldenAngle = Math.PI * (3 - Math.sqrt(5))
+    for (let i = 0; i < POINT_COUNT; i++) {
+      const y = 1 - (i / (POINT_COUNT - 1)) * 2
+      const radius = Math.sqrt(1 - y * y)
+      const theta = goldenAngle * i
+      points.push({ theta, phi: Math.acos(y) })
+    }
+
+    const draw = () => {
+      time += 0.003
+      const w = canvas.offsetWidth
+      const h = canvas.offsetHeight
+      ctx.clearRect(0, 0, w, h)
+
+      const cx = w * 0.5
+      const cy = h * 0.48
+      const radius = Math.min(w, h) * 0.32
+      const rotY = time * 0.8
+      const rotX = Math.sin(time * 0.3) * 0.2
+
+      // Project and draw sphere points
+      const projected: { x: number; y: number; z: number }[] = []
+      for (const p of points) {
+        const x0 = Math.sin(p.phi) * Math.cos(p.theta)
+        const y0 = Math.cos(p.phi)
+        const z0 = Math.sin(p.phi) * Math.sin(p.theta)
+
+        // Rotate Y
+        const x1 = x0 * Math.cos(rotY) + z0 * Math.sin(rotY)
+        const z1 = -x0 * Math.sin(rotY) + z0 * Math.cos(rotY)
+        // Rotate X
+        const y1 = y0 * Math.cos(rotX) - z1 * Math.sin(rotX)
+        const z2 = y0 * Math.sin(rotX) + z1 * Math.cos(rotX)
+
+        projected.push({ x: cx + x1 * radius, y: cy + y1 * radius, z: z2 })
+      }
+
+      // Draw connections between nearby points
+      ctx.lineWidth = 0.5
+      for (let i = 0; i < projected.length; i++) {
+        for (let j = i + 1; j < projected.length; j++) {
+          const dx = projected[i].x - projected[j].x
+          const dy = projected[i].y - projected[j].y
+          const dist = Math.sqrt(dx * dx + dy * dy)
+          if (dist < radius * 0.35) {
+            const avgZ = (projected[i].z + projected[j].z) / 2
+            const alpha = Math.max(0, (avgZ + 1) * 0.5) * (1 - dist / (radius * 0.35)) * 0.25
+            if (alpha > 0.02) {
+              ctx.strokeStyle = `rgba(163, 163, 32, ${alpha})`
+              ctx.beginPath()
+              ctx.moveTo(projected[i].x, projected[i].y)
+              ctx.lineTo(projected[j].x, projected[j].y)
+              ctx.stroke()
+            }
+          }
+        }
+      }
+
+      // Draw points
+      for (const p of projected) {
+        const depthAlpha = Math.max(0, (p.z + 1) * 0.5)
+        const alpha = depthAlpha * 0.8
+        const size = 1 + depthAlpha * 1.5
+
+        ctx.fillStyle = `rgba(200, 200, 64, ${alpha})`
+        ctx.beginPath()
+        ctx.arc(p.x, p.y, size, 0, Math.PI * 2)
+        ctx.fill()
+
+        // Glow on front-facing points
+        if (depthAlpha > 0.6) {
+          ctx.fillStyle = `rgba(163, 163, 32, ${(depthAlpha - 0.6) * 0.15})`
+          ctx.beginPath()
+          ctx.arc(p.x, p.y, size * 4, 0, Math.PI * 2)
+          ctx.fill()
+        }
+      }
+
+      // Center glow
+      const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.8)
+      gradient.addColorStop(0, 'rgba(163, 163, 32, 0.06)')
+      gradient.addColorStop(0.5, 'rgba(163, 163, 32, 0.02)')
+      gradient.addColorStop(1, 'rgba(163, 163, 32, 0)')
+      ctx.fillStyle = gradient
+      ctx.beginPath()
+      ctx.arc(cx, cy, radius * 0.8, 0, Math.PI * 2)
+      ctx.fill()
+
+      animationId = requestAnimationFrame(draw)
+    }
+
+    draw()
+
+    return () => {
+      cancelAnimationFrame(animationId)
+      window.removeEventListener('resize', resize)
+    }
+  }, [])
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="w-full h-full"
+      style={{ background: 'linear-gradient(135deg, rgba(163,163,32,0.03) 0%, rgba(10,14,8,1) 50%, rgba(163,163,32,0.02) 100%)' }}
+    />
+  )
+}
 
 const visionPoints = [
   'Habilitamos sistemas autónomos que optimizan recursos, datos e infraestructura.',
@@ -45,14 +177,7 @@ export default function VisionSection() {
             className="relative"
           >
             <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-bg-card border border-border-default glow-border">
-              <div className="w-full h-full bg-gradient-to-br from-accent/10 via-bg-card to-accent-secondary/10 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-accent/20 border border-accent/30 flex items-center justify-center">
-                    <div className="w-8 h-8 rounded-lg bg-accent/40" />
-                  </div>
-                  <p className="text-sm text-text-secondary">Infraestructura Inteligente</p>
-                </div>
-              </div>
+              <OrbCanvas />
             </div>
           </motion.div>
         </div>
@@ -88,12 +213,12 @@ export default function VisionSection() {
               <div className="relative z-10">
                 <div className="flex justify-center gap-2 mb-5 h-14 items-center">
                   {[
-                    { x: -6, y: 4, o: 0.25 },
-                    { x: 3, y: -7, o: 0.45 },
-                    { x: -4, y: 8, o: 0.2 },
-                    { x: 5, y: -2, o: 0.35 },
-                    { x: -1, y: 6, o: 0.3 },
-                    { x: 4, y: -5, o: 0.15 },
+                    { x: -6, y: 4, o: 0.5 },
+                    { x: 3, y: -7, o: 0.7 },
+                    { x: -4, y: 8, o: 0.4 },
+                    { x: 5, y: -2, o: 0.6 },
+                    { x: -1, y: 6, o: 0.55 },
+                    { x: 4, y: -5, o: 0.35 },
                   ].map((pos, i) => (
                     <motion.div
                       key={i}
@@ -101,8 +226,8 @@ export default function VisionSection() {
                       transition={{ duration: 3 + i * 0.5, repeat: Infinity }}
                       style={{ opacity: pos.o + 0.3 }}
                     >
-                      <div className="w-9 h-9 rounded-full border-2 border-dashed border-red-500/30 flex items-center justify-center">
-                        <div className="w-3 h-3 rounded-full bg-red-500/25" />
+                      <div className="w-9 h-9 rounded-full border-2 border-dashed border-white/30 flex items-center justify-center">
+                        <div className="w-3 h-3 rounded-full bg-white/30" />
                       </div>
                     </motion.div>
                   ))}

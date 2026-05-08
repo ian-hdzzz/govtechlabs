@@ -227,7 +227,7 @@ export default function PlatformOverview() {
       </ContainerScroll>
 
       {/* Features below scroll */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-24 -mt-40">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-24 -mt-20 md:-mt-40">
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature, i) => (
             <motion.div

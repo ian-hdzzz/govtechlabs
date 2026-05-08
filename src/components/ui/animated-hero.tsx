@@ -75,6 +75,10 @@ function Hero() {
               </Button>
             </a>
           </div>
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#0f1410]/80 border border-accent/20 backdrop-blur-sm mt-2">
+            <span className="text-xs font-black text-accent-light">human software corporation</span>
+            <span className="text-xs italic text-accent-light/60">ai solutions</span>
+          </div>
         </div>
       </div>
     </div>

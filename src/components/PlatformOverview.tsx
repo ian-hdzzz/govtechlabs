@@ -15,16 +15,16 @@ const products = [
 
 const features = [
   {
-    title: 'Unifying Institutions',
-    desc: 'Centralize fiscal management, citizen engagement, and physical infrastructure into one hyper-connected core.',
+    title: 'Instituciones Unificadas',
+    desc: 'Centraliza la gestión fiscal, la participación ciudadana y la infraestructura física en un núcleo hiperconectado.',
   },
   {
-    title: 'Seamless Client Flow',
-    desc: 'From payment methods to omnichannel communication, the client experience remains frictionless across all touchpoints.',
+    title: 'Flujo de Cliente Sin Fricción',
+    desc: 'Desde métodos de pago hasta comunicación omnicanal, la experiencia del cliente se mantiene fluida en todos los puntos de contacto.',
   },
   {
-    title: 'Autonomous Operations',
-    desc: 'Powered by MarIA and Ágora, routine interactions are handled by intelligent agents, freeing human talent for strategic decisions.',
+    title: 'Operaciones Autónomas',
+    desc: 'Impulsadas por MarIA y Ágora, las interacciones rutinarias son manejadas por agentes inteligentes, liberando talento humano para decisiones estratégicas.',
   },
 ]
 
@@ -102,7 +102,7 @@ export default function PlatformOverview() {
 
               <div className="mt-6 text-center">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-bg-primary border border-border-default">
-                  <span className="text-xs font-black" style={{ color: '#8B8B00' }}>human software corporation</span>
+                  <span className="text-xs font-black text-accent-light">human software corporation</span>
                 </div>
               </div>
             </div>

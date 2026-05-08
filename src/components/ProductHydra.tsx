@@ -33,7 +33,7 @@ export default function ProductHydra() {
                     <div className="p-4 rounded-lg bg-bg-card border border-border-default">
                       <Gauge className="mb-2" size={20} style={{ color: HYDRA_COLOR }} />
                       <div className="text-xs text-text-muted">Monitorización</div>
-                      <div className="text-sm text-text-secondary mt-1">Seguimiento en tiempo real</div>
+                      <div className="text-sm text-text-secondary mt-1">Seguimiento en tiempo real de medidores</div>
                     </div>
                     <div className="p-4 rounded-lg bg-bg-card border border-border-default text-center">
                       <div className="text-3xl font-bold" style={{ color: HYDRA_COLOR }}>3</div>
@@ -43,7 +43,7 @@ export default function ProductHydra() {
                   <div className="p-4 rounded-lg bg-bg-card border border-border-default">
                     <div className="flex items-center gap-3 mb-3">
                       <Settings size={20} style={{ color: HYDRA_COLOR }} />
-                      <span className="text-sm font-medium">Infraestructura Activa</span>
+                      <span className="text-sm font-medium">Infraestructura activa</span>
                     </div>
                     <div className="grid grid-cols-4 gap-2">
                       {[...Array(8)].map((_, i) => (
@@ -80,8 +80,8 @@ export default function ProductHydra() {
             </div>
 
             <div className="flex gap-4">
-              <Button className="rounded-full" style={{ backgroundColor: HYDRA_COLOR }}>Request Demo</Button>
-              <Button variant="outline" className="rounded-full">Technical Specs</Button>
+              <Button className="rounded-full" style={{ backgroundColor: HYDRA_COLOR }}>Solicitar Demo</Button>
+              <Button variant="outline" className="rounded-full">Especificaciones Técnicas</Button>
             </div>
           </motion.div>
         </div>

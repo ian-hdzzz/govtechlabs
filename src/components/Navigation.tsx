@@ -1,14 +1,12 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 
-const HSC_COLOR = '#8B8B00'
-
 const navLinks = [
   { name: 'Supra', href: '#supra' },
   { name: 'Hydra', href: '#hydra' },
   { name: 'MarIA', href: '#maria' },
   { name: 'Ágora', href: '#agora' },
-  { name: 'Company', href: '#impacto' },
+  { name: 'Nosotros', href: '#impacto' },
 ]
 
 export default function Navigation() {
@@ -19,7 +17,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <a href="#hero" className="flex items-center gap-2">
-            <span className="text-lg font-black" style={{ color: HSC_COLOR }}>
+            <span className="text-lg font-black text-white">
               Human Software Corp
             </span>
           </a>
@@ -41,7 +39,7 @@ export default function Navigation() {
               href="#contacto"
               className="px-5 py-2 text-sm font-medium rounded-full bg-accent text-white hover:bg-accent-glow transition-colors"
             >
-              Get Started
+              Comenzar
             </a>
           </div>
 
@@ -72,7 +70,7 @@ export default function Navigation() {
               className="block w-full text-center px-5 py-2 text-sm font-medium rounded-full bg-accent text-white hover:bg-accent-glow transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              Get Started
+              Comenzar
             </a>
           </div>
         </div>

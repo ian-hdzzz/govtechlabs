@@ -6,21 +6,33 @@ interface LogoProps {
 const SUPRA_COLOR = '#2B3A67'
 
 export default function SupraLogo({ className = '', size = 'md' }: LogoProps) {
-  const sizes = {
-    sm: 'text-3xl',
-    md: 'text-5xl',
-    lg: 'text-7xl',
+  const textSizes = {
+    sm: 'text-2xl',
+    md: 'text-4xl',
+    lg: 'text-6xl',
+  }
+  const paddings = {
+    sm: 'px-3 py-1',
+    md: 'px-5 py-2',
+    lg: 'px-6 py-3',
+  }
+  const dotSizes = {
+    sm: 'w-2 h-2',
+    md: 'w-4 h-4',
+    lg: 'w-5 h-5',
   }
 
   return (
-    <span className={`font-black tracking-tighter ${sizes[size]} ${className}`}>
-      <span style={{ color: SUPRA_COLOR }}>supra</span>
-      <span className="inline-block ml-1.5 align-baseline" style={{ color: SUPRA_COLOR }}>
-        <svg viewBox="0 0 20 20" fill="currentColor" className={`inline ${size === 'sm' ? 'w-3 h-3' : size === 'md' ? 'w-5 h-5' : 'w-7 h-7'} mb-1`}>
-          <rect x="2" y="2" width="16" height="16" rx="2" />
-        </svg>
+    <div className={`inline-block bg-white rounded-2xl ${paddings[size]} ${className}`}>
+      <span className={`font-black tracking-tighter ${textSizes[size]}`}>
+        <span style={{ color: SUPRA_COLOR }}>supra</span>
+        <span className="inline-block ml-1 align-baseline" style={{ color: SUPRA_COLOR }}>
+          <svg viewBox="0 0 20 20" fill="currentColor" className={`inline ${dotSizes[size]} mb-1`}>
+            <rect x="2" y="2" width="16" height="16" rx="2" />
+          </svg>
+        </span>
       </span>
-    </span>
+    </div>
   )
 }
 

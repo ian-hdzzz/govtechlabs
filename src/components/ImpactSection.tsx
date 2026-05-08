@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion'
 import { Quote } from 'lucide-react'
+import ceaEdificio from '@/assets/cea/cea-edificio.png'
+import ceaTanque from '@/assets/cea/cea-tanque.png'
+import ceaInfraestructura from '@/assets/cea/cea-infraestructura.png'
 
 const testimonials = [
   {
@@ -32,6 +35,24 @@ export default function ImpactSection() {
             Las instituciones líderes ya{' '}
             <span className="gradient-text">transformaron su operación</span>
           </h2>
+        </motion.div>
+
+        {/* CEA Images */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-3 gap-4 mb-12"
+        >
+          <div className="rounded-2xl overflow-hidden aspect-[4/3]">
+            <img src={ceaInfraestructura} alt="Infraestructura hídrica CEA Querétaro" className="w-full h-full object-cover" />
+          </div>
+          <div className="rounded-2xl overflow-hidden aspect-[4/3]">
+            <img src={ceaEdificio} alt="Edificio CEA Querétaro" className="w-full h-full object-cover" />
+          </div>
+          <div className="rounded-2xl overflow-hidden aspect-[4/3]">
+            <img src={ceaTanque} alt="Tanque de agua CEA Querétaro" className="w-full h-full object-cover" />
+          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">

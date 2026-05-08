@@ -3,8 +3,8 @@ import { Workflow, Database } from 'lucide-react'
 import AgoraLogo, { AGORA_COLOR } from '@/components/logos/AgoraLogo'
 
 const features = [
-  { icon: Workflow, title: 'Workflow Engine', desc: 'Mapeo integral de tareas y enrutamiento automatizado, creando flujos de trabajo a nivel de servicio.' },
-  { icon: Database, title: 'Systems Integration', desc: 'Conexión transparente con ERPs y bases de datos existentes.' },
+  { icon: Workflow, title: 'Motor de Workflows', desc: 'Mapeo integral de tareas y enrutamiento automatizado, creando flujos de trabajo a nivel de servicio.' },
+  { icon: Database, title: 'Integración de Sistemas', desc: 'Conexión transparente con ERPs y bases de datos existentes.' },
 ]
 
 export default function ProductAgora() {

@@ -3,8 +3,8 @@ import { MessageSquare, Phone, Headphones } from 'lucide-react'
 import MariaLogo, { MARIA_COLOR } from '@/components/logos/MariaLogo'
 
 const features = [
-  { icon: MessageSquare, label: 'Conversación Natural', desc: 'NLP avanzado' },
-  { icon: Phone, label: 'Multicanal', desc: 'WhatsApp, Web, Social' },
+  { icon: MessageSquare, label: 'Conversación Natural', desc: 'Procesamiento de lenguaje natural avanzado' },
+  { icon: Phone, label: 'Multicanal', desc: 'WhatsApp, Web, Redes Sociales' },
 ]
 
 export default function ProductMaria() {

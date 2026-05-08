@@ -4,18 +4,18 @@ import { Layers, Brain, Shield } from 'lucide-react'
 const pillars = [
   {
     icon: Layers,
-    title: 'Fragmented to Unified',
-    desc: 'We dismantle legacy silos where data is trapped, creating a liquid data stream that informs every departmental action in real-time.',
+    title: 'De Fragmentado a Unificado',
+    desc: 'Desmantelamos los silos donde los datos quedan atrapados, creando un flujo de datos líquido que informa cada acción departamental en tiempo real.',
   },
   {
     icon: Brain,
-    title: 'Human-AI Synergy',
-    desc: "Automation doesn't replace; it augments. Our platform handles the 80% of repetitive tasks, allowing human leaders to focus on the 20% that requires empathy and nuance.",
+    title: 'Sinergia Humano-IA',
+    desc: 'La automatización no reemplaza; aumenta. Nuestra plataforma maneja el 80% de tareas repetitivas, permitiendo a los líderes enfocarse en el 20% que requiere empatía y criterio.',
   },
   {
     icon: Shield,
-    title: 'Scalable Resilience',
-    desc: 'Engineered for institutions that cannot fail. High-availability architecture with zero-trust security layers protecting every citizen interaction.',
+    title: 'Resiliencia Escalable',
+    desc: 'Diseñado para instituciones que no pueden fallar. Arquitectura de alta disponibilidad con capas de seguridad zero-trust protegiendo cada interacción ciudadana.',
   },
 ]
 
@@ -29,7 +29,7 @@ export default function PillarsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold">Strategic Integration Pillars</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold">Pilares de Integración Estratégica</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">

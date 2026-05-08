@@ -27,7 +27,7 @@ function Hero() {
         <div className="flex gap-8 py-20 lg:py-40 items-center justify-center flex-col">
           <div>
             <Button variant="secondary" size="sm" className="gap-4 rounded-full">
-              VISION 2026 <ArrowRight className="w-4 h-4" />
+              VISIÓN 2026 <ArrowRight className="w-4 h-4" />
             </Button>
           </div>
           <div className="flex gap-4 flex-col">
@@ -66,7 +66,7 @@ function Hero() {
           <div className="flex flex-row gap-3">
             <a href="#productos">
               <Button size="lg" className="gap-4 rounded-full" variant="outline">
-                Ver Productos <ArrowRight className="w-4 h-4" />
+                Ver productos <ArrowRight className="w-4 h-4" />
               </Button>
             </a>
             <a href="#contacto">

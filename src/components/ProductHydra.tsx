@@ -80,8 +80,12 @@ export default function ProductHydra() {
             </div>
 
             <div className="flex gap-4">
-              <Button className="rounded-full" style={{ backgroundColor: HYDRA_COLOR }}>Solicitar Demo</Button>
-              <Button variant="outline" className="rounded-full">Especificaciones Técnicas</Button>
+              <a href="https://wa.me/5215510635993?text=Hola%2C%20me%20interesa%20una%20demo%20de%20Hydra" target="_blank" rel="noopener noreferrer">
+                <Button className="rounded-full" style={{ backgroundColor: HYDRA_COLOR }}>Solicitar Demo</Button>
+              </a>
+              <a href="https://wa.me/5215510635993?text=Hola%2C%20me%20gustaría%20recibir%20las%20especificaciones%20técnicas%20de%20Hydra" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="rounded-full">Especificaciones Técnicas</Button>
+              </a>
             </div>
           </motion.div>
         </div>

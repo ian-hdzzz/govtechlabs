@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { MessageSquare, Phone, Headphones } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 import MariaLogo, { MARIA_COLOR } from '@/components/logos/MariaLogo'
 
 const features = [
@@ -33,6 +34,15 @@ export default function ProductMaria() {
                   <p className="text-xs text-text-muted mt-1">{feature.desc}</p>
                 </div>
               ))}
+            </div>
+
+            <div className="flex gap-4 mt-8">
+              <a href="https://wa.me/5215510635993?text=Hola%2C%20me%20interesa%20una%20demo%20de%20MarIA" target="_blank" rel="noopener noreferrer">
+                <Button className="rounded-full" style={{ backgroundColor: MARIA_COLOR }}>Solicitar Demo</Button>
+              </a>
+              <a href="https://wa.me/5215510635993?text=Hola%2C%20quiero%20saber%20más%20sobre%20MarIA" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="rounded-full">Más Información</Button>
+              </a>
             </div>
           </motion.div>
 

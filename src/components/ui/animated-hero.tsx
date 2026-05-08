@@ -69,7 +69,7 @@ function Hero() {
                 Ver productos <ArrowRight className="w-4 h-4" />
               </Button>
             </a>
-            <a href="#contacto">
+            <a href="https://wa.me/5215510635993?text=Hola%2C%20me%20interesa%20conocer%20más%20sobre%20Human%20Software" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="gap-4 rounded-full">
                 Comenzar <ArrowRight className="w-4 h-4" />
               </Button>

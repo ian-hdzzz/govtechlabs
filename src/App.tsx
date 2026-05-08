@@ -9,6 +9,7 @@ import ProductHydra from '@/components/ProductHydra'
 import ProductMaria from '@/components/ProductMaria'
 import ProductAgora from '@/components/ProductAgora'
 import ImpactSection from '@/components/ImpactSection'
+import CTASection from '@/components/CTASection'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <ProductAgora />
         </div>
         <ImpactSection />
+        <CTASection />
       </main>
       <Footer />
     </div>

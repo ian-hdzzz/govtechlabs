@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Workflow, Database } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 import AgoraLogo, { AGORA_COLOR } from '@/components/logos/AgoraLogo'
 
 const features = [
@@ -60,6 +61,15 @@ export default function ProductAgora() {
                 <p className="text-text-secondary text-sm">{feature.desc}</p>
               </div>
             ))}
+
+            <div className="flex gap-4 mt-6">
+              <a href="https://wa.me/5215510635993?text=Hola%2C%20me%20interesa%20una%20demo%20de%20Ágora" target="_blank" rel="noopener noreferrer">
+                <Button className="rounded-full" style={{ backgroundColor: AGORA_COLOR }}>Solicitar Demo</Button>
+              </a>
+              <a href="https://wa.me/5215510635993?text=Hola%2C%20quiero%20saber%20más%20sobre%20Ágora" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="rounded-full">Más Información</Button>
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>

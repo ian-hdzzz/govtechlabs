@@ -16,7 +16,7 @@ const footerLinks = {
     { name: 'Términos de Servicio', href: '#' },
   ],
   Contacto: [
-    { name: 'Contáctanos', href: '#contacto' },
+    { name: 'WhatsApp', href: 'https://wa.me/5215510635993?text=Hola%2C%20me%20interesa%20conocer%20más%20sobre%20Human%20Software' },
   ],
 }
 

@@ -36,7 +36,7 @@ export default function Navigation() {
 
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="#contacto"
+              href="https://wa.me/5215510635993?text=Hola%2C%20me%20interesa%20conocer%20más%20sobre%20Human%20Software" target="_blank" rel="noopener noreferrer"
               className="px-5 py-2 text-sm font-medium rounded-full bg-accent text-white hover:bg-accent-glow transition-colors"
             >
               Comenzar
@@ -66,7 +66,7 @@ export default function Navigation() {
               </a>
             ))}
             <a
-              href="#contacto"
+              href="https://wa.me/5215510635993?text=Hola%2C%20me%20interesa%20conocer%20más%20sobre%20Human%20Software" target="_blank" rel="noopener noreferrer"
               className="block w-full text-center px-5 py-2 text-sm font-medium rounded-full bg-accent text-white hover:bg-accent-glow transition-colors"
               onClick={() => setIsOpen(false)}
             >

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import SupraLogo, { SUPRA_COLOR } from '@/components/logos/SupraLogo'
 
 import supraAdmin from '@/assets/supra/supra-admin.png'
+import supraAdminContratos from '@/assets/supra/supra-admin-contratos.png'
 import supraCliente1 from '@/assets/supra/supra-cliente-1.png'
 import supraCliente2 from '@/assets/supra/supra-cliente-2.png'
 import supraCliente3 from '@/assets/supra/supra-cliente-3.png'
@@ -60,24 +61,40 @@ export default function ProductSupra() {
             </div>
           </motion.div>
 
-          {/* Admin panel screenshot */}
+          {/* Admin panel screenshots - stacked with overlap */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            className="relative"
           >
-            <div className="relative">
-              <div className="absolute -inset-1 rounded-3xl opacity-30 blur-xl" style={{ background: `linear-gradient(135deg, ${SUPRA_COLOR}40, transparent)` }} />
-              <div className="relative rounded-2xl overflow-hidden border border-border-default shadow-2xl">
-                <img
-                  src={supraAdmin}
-                  alt="SUPRA - Panel de administración"
-                  className="w-full h-auto rounded-2xl"
-                />
-              </div>
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-bg-card border border-border-default shadow-lg">
-                <span className="text-xs font-semibold text-text-muted">Vista Administrativa</span>
-              </div>
+            <div className="absolute -inset-2 rounded-3xl opacity-25 blur-xl" style={{ background: `linear-gradient(135deg, ${SUPRA_COLOR}40, transparent)` }} />
+            {/* Back: Contratos */}
+            <div className="relative rounded-2xl overflow-hidden border border-border-default shadow-xl">
+              <img
+                src={supraAdminContratos}
+                alt="SUPRA - Gestión de contratos"
+                className="w-full h-auto rounded-2xl"
+              />
+            </div>
+            {/* Front: Dashboard overlapping */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              whileHover={{ y: -5 }}
+              className="relative -mt-[30%] ml-[8%] mr-[-4%] rounded-2xl overflow-hidden border border-border-default shadow-2xl"
+              style={{ zIndex: 10 }}
+            >
+              <img
+                src={supraAdmin}
+                alt="SUPRA - Panel de control"
+                className="w-full h-auto rounded-2xl"
+              />
+            </motion.div>
+            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-bg-card border border-border-default shadow-lg z-20">
+              <span className="text-xs font-semibold text-text-muted">Vista Administrativa</span>
             </div>
           </motion.div>
         </div>
@@ -97,7 +114,7 @@ export default function ProductSupra() {
           </div>
 
           {/* Mobile screens fan layout */}
-          <div className="flex justify-center items-end gap-3 sm:gap-5 md:gap-6 overflow-hidden px-4">
+          <div className="flex justify-center items-end gap-3 sm:gap-5 md:gap-6 px-4 pb-4">
             {clientScreens.map((screen, i) => (
               <motion.div
                 key={i}
@@ -105,7 +122,7 @@ export default function ProductSupra() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.12 }}
-                whileHover={{ y: -10, scale: 1.03 }}
+                whileHover={{ y: -10 }}
                 className="relative flex-shrink-0"
                 style={{
                   width: 'clamp(140px, 20vw, 200px)',

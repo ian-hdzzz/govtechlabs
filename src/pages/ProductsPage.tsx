@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import { ContainerScroll } from '@/components/ui/container-scroll-animation'
-import { CheckCircle, CreditCard, Zap, BarChart3, Settings, Gauge, Wrench, Users } from 'lucide-react'
+import { CheckCircle, CreditCard, Zap, BarChart3, Settings, Gauge } from 'lucide-react'
 
 const supraFeatures = [
   { icon: CreditCard, title: 'Recaudación', desc: 'Procesamiento de cobros multicanal con conciliación automática.' },

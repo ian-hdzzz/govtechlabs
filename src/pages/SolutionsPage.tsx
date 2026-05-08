@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { MessageSquare, Phone, Settings, Database, Workflow, Clock, Shield, Headphones } from 'lucide-react'
+import { MessageSquare, Phone, Database, Workflow, Headphones } from 'lucide-react'
 
 const mariaFeatures = [
   { icon: MessageSquare, label: 'Conversación Natural', desc: 'NLP avanzado' },

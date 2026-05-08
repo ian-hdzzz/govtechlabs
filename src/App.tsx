@@ -21,10 +21,10 @@ function App() {
         <PlatformOverview />
         <PillarsSection />
         <div id="productos" className="scroll-mt-20">
-          <ProductSupra />
-          <ProductHydra />
           <ProductMaria />
           <ProductAgora />
+          <ProductSupra />
+          <ProductHydra />
         </div>
         <ImpactSection />
         <CTASection />

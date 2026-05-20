@@ -151,17 +151,18 @@ export default function ProductArgus() {
             viewport={{ once: true }}
             className="order-1 lg:order-2"
           >
-            <ArgusLogo size="lg" className="mb-4" />
-
-            <div
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest mb-6"
-              style={{
-                backgroundColor: `${ARGUS_COLOR}25`,
-                border: `1px solid ${ARGUS_COLOR}50`,
-                color: ARGUS_ACCENT,
-              }}
-            >
-              Capa de Observabilidad Transversal
+            <div className="flex items-center gap-4 mb-6">
+              <ArgusLogo size="lg" />
+              <div
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest ml-auto"
+                style={{
+                  backgroundColor: `${ARGUS_COLOR}25`,
+                  border: `1px solid ${ARGUS_COLOR}50`,
+                  color: ARGUS_ACCENT,
+                }}
+              >
+                Capa de Observabilidad Transversal
+              </div>
             </div>
 
             <h3 className="text-2xl sm:text-3xl font-bold mb-6">

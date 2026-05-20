@@ -94,15 +94,15 @@ export default function PlatformOverview() {
               animate={{ rotate: -360 }}
               transition={{ duration: 200, repeat: Infinity, ease: 'linear' }}
             />
-            {/* ARGUS label — top of outer ring */}
+            {/* ARGUS label — top-right corner, clear of product cards */}
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.8 }}
-              className="absolute top-[3%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-0.5 z-20 pointer-events-none select-none"
+              className="absolute top-[5%] right-[5%] flex flex-col items-end gap-0.5 z-20 pointer-events-none select-none"
             >
-              <span className="text-[11px] font-black tracking-widest" style={{ color: ARGUS_ACCENT }}>
+              <span className="text-[12px] font-black tracking-widest" style={{ color: ARGUS_ACCENT }}>
                 argus.
               </span>
               <span className="text-[8px] uppercase tracking-widest text-text-muted font-semibold">

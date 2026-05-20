@@ -8,6 +8,7 @@ import ProductSupra from '@/components/ProductSupra'
 import ProductHydra from '@/components/ProductHydra'
 import ProductMaria from '@/components/ProductMaria'
 import ProductAgora from '@/components/ProductAgora'
+import ProductArgus from '@/components/ProductArgus'
 import ImpactSection from '@/components/ImpactSection'
 import CTASection from '@/components/CTASection'
 import ParticlesBackground from '@/components/ParticlesBackground'
@@ -27,6 +28,7 @@ function App() {
           <ProductAgora />
           <ProductSupra />
           <ProductHydra />
+          <ProductArgus />
         </div>
         <ImpactSection />
         <CTASection />

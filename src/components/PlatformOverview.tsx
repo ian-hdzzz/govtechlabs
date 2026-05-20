@@ -5,6 +5,7 @@ import { SUPRA_COLOR } from '@/components/logos/SupraLogo'
 import { HYDRA_COLOR } from '@/components/logos/HydraLogo'
 import { MARIA_COLOR } from '@/components/logos/MariaLogo'
 import { AGORA_COLOR } from '@/components/logos/AgoraLogo'
+import { ARGUS_COLOR, ARGUS_ACCENT } from '@/components/logos/ArgusLogo'
 
 const products = [
   { name: 'supra.', desc: 'Pagos y recaudación institucional', color: SUPRA_COLOR, href: '#supra' },
@@ -82,6 +83,48 @@ export default function PlatformOverview() {
 
           {/* ═══ DESKTOP DIAGRAM ═══ */}
           <div className="hidden md:flex h-full w-full relative items-center justify-center">
+
+            {/* ── ARGUS outer ring — transversal observability layer ── */}
+            <motion.div
+              className="absolute w-[82%] aspect-square rounded-full"
+              style={{
+                border: `1px dashed ${ARGUS_COLOR}80`,
+                boxShadow: `0 0 60px ${ARGUS_COLOR}18, inset 0 0 40px ${ARGUS_COLOR}08`,
+              }}
+              animate={{ rotate: -360 }}
+              transition={{ duration: 200, repeat: Infinity, ease: 'linear' }}
+            />
+            {/* ARGUS label — top of outer ring */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.8 }}
+              className="absolute top-[3%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-0.5 z-20 pointer-events-none select-none"
+            >
+              <span className="text-[11px] font-black tracking-widest" style={{ color: ARGUS_ACCENT }}>
+                argus.
+              </span>
+              <span className="text-[8px] uppercase tracking-widest text-text-muted font-semibold">
+                capa de observabilidad
+              </span>
+            </motion.div>
+            {/* ARGUS sensor nodes — cardinal points on outer ring */}
+            {[
+              { style: { top: '9%', left: '50%', transform: 'translateX(-50%)' } },
+              { style: { bottom: '9%', left: '50%', transform: 'translateX(-50%)' } },
+              { style: { top: '50%', left: '9%', transform: 'translateY(-50%)' } },
+              { style: { top: '50%', right: '9%', transform: 'translateY(-50%)' } },
+            ].map((pos, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-1.5 h-1.5 rounded-full z-10"
+                style={{ ...pos.style, backgroundColor: ARGUS_ACCENT }}
+                animate={{ opacity: [0.4, 1, 0.4], scale: [0.8, 1.2, 0.8] }}
+                transition={{ duration: 2.5, repeat: Infinity, delay: i * 0.6, ease: 'easeInOut' }}
+              />
+            ))}
+
             {/* Orbital ring */}
             <motion.div
               className="absolute w-[50%] aspect-square rounded-full border border-dashed border-accent/20"
@@ -216,6 +259,26 @@ export default function PlatformOverview() {
                   <div className="text-[8px] opacity-80 mt-0.5 line-clamp-2">{product.desc}</div>
                 </motion.a>
               ))}
+            </div>
+
+            {/* ARGUS badge — mobile */}
+            <div
+              className="flex items-center justify-between px-3 py-2 rounded-xl"
+              style={{
+                backgroundColor: `${ARGUS_COLOR}20`,
+                border: `1px dashed ${ARGUS_COLOR}60`,
+              }}
+            >
+              <div className="flex items-center gap-2">
+                <motion.div
+                  className="w-1.5 h-1.5 rounded-full shrink-0"
+                  style={{ backgroundColor: ARGUS_ACCENT }}
+                  animate={{ opacity: [0.4, 1, 0.4] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+                <span className="text-[10px] font-black" style={{ color: ARGUS_ACCENT }}>argus.</span>
+              </div>
+              <span className="text-[9px] text-text-muted font-medium">capa de observabilidad</span>
             </div>
 
             {/* HSC badge */}

@@ -6,6 +6,7 @@ const navLinks = [
   { name: 'Hydra', href: '#hydra' },
   { name: 'MarIA', href: '#maria' },
   { name: 'Ágora', href: '#agora' },
+  { name: 'Argus', href: '#argus' },
   { name: 'Nosotros', href: '#impacto' },
 ]
 
@@ -18,7 +19,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           <a href="#hero" className="flex items-center gap-2">
             <span className="text-lg font-black text-white">
-              Human Software Corp
+              Human Software Corporation
             </span>
           </a>
 

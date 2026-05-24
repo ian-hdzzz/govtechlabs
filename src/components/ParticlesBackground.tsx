@@ -100,6 +100,7 @@ export default function ParticlesBackground() {
       ref={canvasRef}
       className="fixed inset-0 w-full h-full pointer-events-none z-0"
       style={{ opacity: 0.6 }}
+      aria-hidden="true"
     />
   )
 }

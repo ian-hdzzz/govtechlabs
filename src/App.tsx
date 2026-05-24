@@ -16,9 +16,12 @@ import ParticlesBackground from '@/components/ParticlesBackground'
 function App() {
   return (
     <div className="min-h-screen bg-bg-primary relative">
+      <a href="#contenido-principal" className="skip-link">
+        Saltar al contenido principal
+      </a>
       <ParticlesBackground />
       <Navigation />
-      <main>
+      <main id="contenido-principal" tabIndex={-1}>
         <HeroSection />
         <VisionSection />
         <PlatformOverview />

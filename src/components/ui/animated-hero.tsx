@@ -28,7 +28,9 @@ function Hero() {
           <div className="flex gap-4 flex-col">
             <h1 className="text-4xl sm:text-5xl md:text-7xl max-w-3xl tracking-tighter text-center font-bold">
               <span className="text-text-primary">Instituciones</span>
-              <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
+              {/* Texto estático para screen readers */}
+              <span className="sr-only"> {titles[titleNumber]}</span>
+              <span aria-hidden="true" className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
                 &nbsp;
                 {titles.map((title, index) => (
                   <motion.span
@@ -61,12 +63,17 @@ function Hero() {
           <div className="flex flex-row gap-3">
             <a href="#productos">
               <Button size="lg" className="gap-4 rounded-full" variant="outline">
-                Ver productos <ArrowRight className="w-4 h-4" />
+                Ver productos <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Button>
             </a>
-            <a href="https://wa.me/5215510635993?text=Hola%2C%20me%20interesa%20conocer%20más%20sobre%20Human%20Software" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://wa.me/5215510635993?text=Hola%2C%20me%20interesa%20conocer%20más%20sobre%20Human%20Software"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Comenzar — contactar por WhatsApp (abre en nueva pestaña)"
+            >
               <Button size="lg" className="gap-4 rounded-full">
-                Comenzar <ArrowRight className="w-4 h-4" />
+                Comenzar <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Button>
             </a>
           </div>

@@ -268,6 +268,7 @@ export default function WireframeHead() {
       ref={canvasRef}
       className="absolute inset-0 w-full h-full"
       style={{ pointerEvents: 'none' }}
+      aria-hidden="true"
     />
   )
 }

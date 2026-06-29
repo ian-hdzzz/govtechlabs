@@ -1,33 +1,39 @@
 import { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 
 const navLinks = [
-  { name: 'Supra', href: '#supra' },
-  { name: 'Hydra', href: '#hydra' },
-  { name: 'MarIA', href: '#maria' },
-  { name: 'Ágora', href: '#agora' },
-  { name: 'Argus', href: '#argus' },
-  { name: 'Nosotros', href: '#impacto' },
+  { name: 'Supra', hash: '#supra' },
+  { name: 'Hydra', hash: '#hydra' },
+  { name: 'MarIA', hash: '#maria' },
+  { name: 'Ágora', hash: '#agora' },
+  { name: 'Argus', hash: '#argus' },
+  { name: 'Nosotros', hash: '#impacto' },
 ]
+
+function resolveHref(pathname: string, hash: string): string {
+  return pathname === '/' ? hash : `/${hash}`
+}
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const { pathname } = useLocation()
 
   return (
     <nav aria-label="Navegación principal" className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="#hero" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <span className="text-lg font-black text-white">
               Human Software Corporation
             </span>
-          </a>
+          </Link>
 
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
-                href={link.href}
+                href={resolveHref(pathname, link.hash)}
                 className="text-sm font-medium transition-colors hover:text-accent-light text-text-secondary"
               >
                 {link.name}
@@ -65,7 +71,7 @@ export default function Navigation() {
             {navLinks.map((link) => (
               <a
                 key={link.name}
-                href={link.href}
+                href={resolveHref(pathname, link.hash)}
                 className="block text-sm font-medium text-text-secondary hover:text-accent-light transition-colors"
                 onClick={() => setIsOpen(false)}
               >

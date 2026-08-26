@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import Navigation from '@/components/Navigation'
@@ -9,12 +10,46 @@ import { cn } from '@/lib/utils'
 
 interface LegalPageLayoutProps {
   content: PrivacyPolicyContent
+  esPath?: string
+  enPath?: string
+  lastUpdatedDateTime?: string
 }
 
-export default function LegalPageLayout({ content }: LegalPageLayoutProps) {
+// Renders inline [label](/route) links and **bold** spans inside content text.
+function renderInline(text: string): ReactNode {
+  const pattern = /\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*/g
+  const parts: ReactNode[] = []
+  let lastIndex = 0
+  let match: RegExpExecArray | null
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index))
+    }
+    if (match[1] !== undefined) {
+      parts.push(
+        <Link key={match.index} to={match[2]}>
+          {match[1]}
+        </Link>,
+      )
+    } else {
+      parts.push(<strong key={match.index}>{match[3]}</strong>)
+    }
+    lastIndex = pattern.lastIndex
+  }
+  if (lastIndex === 0) return text
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex))
+  }
+  return parts
+}
+
+export default function LegalPageLayout({
+  content,
+  esPath = '/es/privacidad',
+  enPath = '/en/privacy',
+  lastUpdatedDateTime = '2026-06-29',
+}: LegalPageLayoutProps) {
   const { locale } = content
-  const esPath = '/es/privacidad'
-  const enPath = '/en/privacy'
   const skipLabel = locale === 'es' ? 'Saltar al contenido principal' : 'Skip to main content'
 
   return (
@@ -41,7 +76,7 @@ export default function LegalPageLayout({ content }: LegalPageLayoutProps) {
                 <h1 className="text-3xl sm:text-4xl font-black text-white">{content.title}</h1>
                 <p className="mt-3 text-sm text-text-muted">
                   {content.lastUpdatedLabel}:{' '}
-                  <time dateTime="2026-06-29">{content.lastUpdated}</time>
+                  <time dateTime={lastUpdatedDateTime}>{content.lastUpdated}</time>
                 </p>
               </div>
 
@@ -90,18 +125,20 @@ export default function LegalPageLayout({ content }: LegalPageLayoutProps) {
             />
 
             <article className="legal-prose max-w-3xl">
-              <p className="text-lg text-text-secondary leading-relaxed">{content.intro}</p>
+              {content.intro && (
+                <p className="text-lg text-text-secondary leading-relaxed">{content.intro}</p>
+              )}
 
               {content.sections.map((section) => (
                 <section key={section.id} id={section.id} className="scroll-mt-24">
                   <h2>{section.title}</h2>
                   {section.blocks.map((block, index) =>
                     block.type === 'paragraph' ? (
-                      <p key={index}>{block.text}</p>
+                      <p key={index}>{renderInline(block.text)}</p>
                     ) : (
                       <ul key={index}>
                         {block.items.map((item) => (
-                          <li key={item}>{item}</li>
+                          <li key={item}>{renderInline(item)}</li>
                         ))}
                       </ul>
                     ),

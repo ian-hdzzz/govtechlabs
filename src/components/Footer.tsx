@@ -34,7 +34,8 @@ const footerLinksByLocale: Record<'es' | 'en', Record<string, FooterCategory>> =
       label: 'Legal',
       links: [
         { name: 'Política de Privacidad', href: '/es/privacidad', isRoute: true },
-        { name: 'Términos de Servicio', href: '#', isRoute: false },
+        { name: 'Términos del Servicio', href: '/es/terminos', isRoute: true },
+        { name: 'Eliminación de Datos', href: '/es/eliminacion-de-datos', isRoute: true },
       ],
     },
     Contacto: {
@@ -72,7 +73,8 @@ const footerLinksByLocale: Record<'es' | 'en', Record<string, FooterCategory>> =
       label: 'Legal',
       links: [
         { name: 'Privacy Policy', href: '/en/privacy', isRoute: true },
-        { name: 'Terms of Service', href: '#', isRoute: false },
+        { name: 'Terms of Service', href: '/en/terms', isRoute: true },
+        { name: 'Data Deletion', href: '/en/data-deletion', isRoute: true },
       ],
     },
     Contacto: {
